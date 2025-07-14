@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | GreenBin Waste Solutions</title>
+    <style>
+        :root {
+            --green: #4CAF50;
+            --blue: #2196F3;
+            --orange: #FF9800;
+            --red: #F44336;
+            --dark: #333;
+            --light: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('waste-hero.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background: var(--green);
+            color: white;
+        }
+        
+        .tab-btn:nth-child(2).active { background: var(--blue); }
+        .tab-btn:nth-child(3).active { background: var(--orange); }
+        .tab-btn:nth-child(4).active { background: var(--red); }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 40px;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Waste Type Cards */
+        .waste-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .waste-icon {
+            padding: 20px;
+            color: white;
+            font-size: 2rem;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .organic { background: var(--green); }
+        .recyclable { background: var(--blue); }
+        .hazardous { background: var(--orange); }
+        .electronic { background: var(--red); }
+        
+        .waste-info {
+            padding: 20px;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .waste-type {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Smart Waste Solutions</h1>
+            <p>Understanding and managing waste for a cleaner planet</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="about-us">
+            <h2>About GreenBin</h2>
+            <p>Founded in 2015, GreenBin provides innovative waste management solutions to households and businesses. We're committed to reducing landfill waste through education, proper sorting, and advanced processing technologies.</p>
+        </section>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('organic')">Organic</button>
+            <button class="tab-btn" onclick="openTab('recyclable')">Recyclable</button>
+            <button class="tab-btn" onclick="openTab('hazardous')">Hazardous</button>
+            <button class="tab-btn" onclick="openTab('e-waste')">E-Waste</button>
+        </div>
+        
+        <div id="organic" class="tab-content active">
+            <div class="waste-type">
+                <div class="waste-icon organic">🍎</div>
+                <div class="waste-info">
+                    <h3>Organic Waste</h3>
+                    <p>Biodegradable waste from plants or animals including food scraps, yard trimmings, and paper products. When properly composted, it returns nutrients to the soil.</p>
+                    <p><strong>Examples:</strong> Fruit/vegetable peels, coffee grounds, eggshells, grass clippings</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="recyclable" class="tab-content">
+            <div class="waste-type">
+                <div class="waste-icon recyclable">♻️</div>
+                <div class="waste-info">
+                    <h3>Recyclable Waste</h3>
+                    <p>Materials that can be processed and remanufactured into new products. Recycling conserves resources and reduces energy consumption.</p>
+                    <p><strong>Examples:</strong> Paper, cardboard, glass bottles, aluminum cans, plastic #1-7</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="hazardous" class="tab-content">
+            <div class="waste-type">
+                <div class="waste-icon hazardous">⚠️</div>
+                <div class="waste-info">
+                    <h3>Hazardous Waste</h3>
+                    <p>Materials that are flammable, toxic, corrosive, or reactive. Require special handling to prevent harm to people or the environment.</p>
+                    <p><strong>Examples:</strong> Batteries, pesticides, cleaning chemicals, fluorescent bulbs</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="e-waste" class="tab-content">
+            <div class="waste-type">
+                <div class="waste-icon electronic">💻</div>
+                <div class="waste-info">
+                    <h3>Electronic Waste</h3>
+                    <p>Discarded electronic devices containing both valuable materials and hazardous components that need proper recycling.</p>
+                    <p><strong>Examples:</strong> Computers, TVs, phones, appliances</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">75%</div>
+                <p>Of household waste can be recycled or composted</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1.3B</div>
+                <p>Tons of food wasted globally each year</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50M</div>
+                <p>Tons of e-waste generated annually</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <h3>Ready to improve your waste management?</h3>
+            <a href="#" class="cta-button">Get Started Today</a>
+        </div>
+    </footer>
+    
+    <script>
+        function openTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            
+            // Remove active class from all buttons
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            // Show current tab and mark button as active
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
